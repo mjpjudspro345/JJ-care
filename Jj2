@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love - Healing Wishes 💖</title>
+    <meta name="description" content="A magical place of love and healing for someone special">
+    <meta name="author" content="Juda Prince">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --background: hsl(340, 100%, 97%);
+            --foreground: hsl(340, 10%, 20%);
+            --romantic: hsl(350, 100%, 88%);
+            --romantic-foreground: hsl(340, 15%, 25%);
+            --romantic-deep: hsl(340, 80%, 65%);
+            --healing: hsl(280, 60%, 85%);
+            --healing-foreground: hsl(280, 20%, 30%);
+            --love: hsl(0, 100%, 85%);
+            --love-foreground: hsl(0, 20%, 25%);
+            --primary: hsl(340, 82%, 75%);
+            --primary-glow: hsl(340, 100%, 85%);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, hsl(340, 100%, 97%) 0%, hsl(320, 80%, 95%) 100%);
+            min-height: 100vh;
+            color: var(--foreground);
+            overflow-x: hidden;
+        }
+        
+        .font-romantic {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px hsl(340, 100%, 85%, 0.3); }
+            to { box-shadow: 0 0 40px hsl(340, 100%, 85%, 0.8); }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .animate-heart-beat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        .animate-falling {
+            animation: falling 8s linear infinite;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .animate-scale-in {
+            animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        /* Background gradients */
+        .bg-gradient-romantic {
+            background: linear-gradient(135deg, hsl(340, 82%, 85%) 0%, hsl(320, 70%, 90%) 50%, hsl(280, 60%, 92%) 100%);
+        }
+        
+        .bg-gradient-love {
+            background: linear-gradient(45deg, hsl(350, 100%, 88%) 0%, hsl(340, 82%, 85%) 100%);
+        }
+        
+        .bg-gradient-healing {
+            background: linear-gradient(180deg, hsl(340, 100%, 97%) 0%, hsl(320, 80%, 95%) 100%);
+        }
+        
+        /* Shadows */
+        .shadow-romantic {
+            box-shadow: 0 10px 30px -5px hsl(340, 82%, 75%, 0.3);
+        }
+        
+        .shadow-heart {
+            box-shadow: 0 0 20px hsl(350, 100%, 80%, 0.6);
+        }
+        
+        .shadow-glow {
+            box-shadow: 0 0 40px hsl(340, 100%, 85%, 0.5);
+        }
+        
+        .shadow-soft {
+            box-shadow: 0 4px 20px hsl(340, 60%, 85%, 0.2);
+        }
+        
+        /* Layout styles */
+        .main-container {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .background-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, hsl(350, 100%, 88%, 0.1) 0%, transparent 50%, hsl(280, 60%, 85%, 0.1) 100%);
+        }
+        
+        .sparkle {
+            position: absolute;
+            font-size: 24px;
+            color: var(--romantic);
+            filter: drop-shadow(0 0 10px hsl(340, 100%, 85%));
+        }
+        
+        .sparkle-1 {
+            top: 40px;
+            left: 40px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .sparkle-2 {
+            top: 128px;
+            right: 80px;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+        
+        .sparkle-3 {
+            bottom: 80px;
+            left: 128px;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 3s;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 20;
+            padding: 64px 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 64px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .header-hearts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .main-title {
+            font-size: 4.5rem;
+            font-family: 'Dancing Script', cursive;
+            color: var(--romantic-deep);
+            filter: drop-shadow(0 0 20px hsl(340, 100%, 85%));
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--healing-foreground);
+            opacity: 0.8;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+        
+        .messages-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+        
+        .message-card {
+            padding: 48px;
+            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            border: 1px solid hsl(340, 82%, 75%, 0.2);
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .message-card:hover {
+            box-shadow: 0 0 40px hsl(340, 100%, 85%, 0.5);
+        }
+        
+        .message-card.delay-1 {
+            animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+        }
+        
+        .message-card.delay-2 {
+            animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation-delay: 0.4s;
+            animation-fill-mode: both;
+        }
+        
+        .message-card.delay-3 {
+            animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation-delay: 0.6s;
+            animation-fill-mode: both;
+        }
+        
+        .message-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .heart-icon {
+            font-size: 32px;
+            color: var(--romantic);
+            filter: drop-shadow(0 0 10px hsl(350, 100%, 80%));
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        .sparkle-icon {
+            font-size: 24px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .message-text {
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
+            line-height: 1.6;
+            color: var(--romantic-foreground);
+        }
+        
+        .love-names {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        .love-name {
+            font-size: 1.25rem;
+            font-family: 'Dancing Script', cursive;
+            animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation-fill-mode: both;
+        }
+        
+        .love-name:nth-child(1) { animation-delay: 1s; }
+        .love-name:nth-child(2) { animation-delay: 1.2s; }
+        .love-name:nth-child(3) { animation-delay: 1.4s; }
+        .love-name:nth-child(4) { animation-delay: 1.6s; }
+        .love-name:nth-child(5) { animation-delay: 1.8s; }
+        .love-name:nth-child(6) { animation-delay: 2s; }
+        
+        .final-message {
+            padding: 48px;
+            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            border: 1px solid hsl(0, 100%, 85%, 0.3);
+            text-align: center;
+            animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation-delay: 0.8s;
+            animation-fill-mode: both;
+        }
+        
+        .final-heart-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        
+        .final-heart-bg {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            padding: 32px;
+            box-shadow: 0 4px 20px hsl(340, 60%, 85%, 0.2);
+        }
+        
+        .final-heart-large {
+            font-size: 64px;
+            color: var(--love);
+            filter: drop-shadow(0 0 15px hsl(350, 100%, 80%));
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        .final-title {
+            font-size: 3rem;
+            font-family: 'Dancing Script', cursive;
+            color: var(--love-foreground);
+            margin-bottom: 32px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .final-text {
+            font-size: 1.875rem;
+            font-family: 'Dancing Script', cursive;
+            color: var(--love-foreground);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .final-emojis {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 32px;
+        }
+        
+        .final-emoji {
+            font-size: 2.5rem;
+        }
+        
+        .final-emoji:nth-child(1) {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        .final-emoji:nth-child(2) {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .final-emoji:nth-child(3) {
+            animation: heartbeat 1.5s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+        
+        /* Falling emojis */
+        .falling-emojis {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+        
+        .falling-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: falling 8s linear infinite;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+            
+            .header-hearts {
+                gap: 16px;
+            }
+            
+            .message-card {
+                padding: 32px 24px;
+            }
+            
+            .message-text {
+                font-size: 1.25rem;
+            }
+            
+            .love-names {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .final-title {
+                font-size: 2.5rem;
+            }
+            
+            .final-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container bg-gradient-healing">
+        <div class="falling-emojis" id="fallingEmojis"></div>
+        
+        <div class="background-overlay"></div>
+        
+        <!-- Floating sparkles -->
+        <div class="sparkle sparkle-1 animate-glow">✨</div>
+        <div class="sparkle sparkle-2 animate-glow">✨</div>
+        <div class="sparkle sparkle-3 animate-glow">✨</div>
+        
+        <div class="content">
+            <div class="container">
+                <!-- Header -->
+                <div class="header">
+                    <div class="header-hearts">
+                        <div class="heart-icon">💖</div>
+                        <h1 class="main-title">For My Beautiful Love</h1>
+                        <div class="heart-icon">💖</div>
+                    </div>
+                    <div class="subtitle">From Juda Prince, with all my heart 💖</div>
+                </div>
+
+                <div class="messages-container">
+                    <!-- Main message -->
+                    <div class="message-card bg-gradient-romantic shadow-romantic delay-1">
+                        <div class="message-icons">
+                            <div class="heart-icon">💖</div>
+                            <div class="sparkle-icon">✨</div>
+                            <div class="heart-icon">💖</div>
+                        </div>
+                        <p class="message-text">
+                            ✨ <strong>Juda Prince is always with you, he will take care of you every day, 
+                            stand by you all the time, and everything will be okay soon.</strong> ✨
+                        </p>
+                    </div>
+
+                    <!-- Dudu message -->
+                    <div class="message-card bg-gradient-romantic shadow-romantic delay-2">
+                        <div class="message-icons">
+                            <div class="heart-icon">💖</div>
+                            <div class="sparkle-icon">✨</div>
+                            <div class="heart-icon">💖</div>
+                        </div>
+                        <p class="message-text">
+                            💕 <strong>I'm your Dudu, I'll take care of you forever, my love.</strong> 💕
+                        </p>
+                        <div class="final-emojis">
+                            <div class="final-emoji animate-heart-beat">🫂</div>
+                            <div class="final-emoji animate-float">👨‍❤️‍💋‍👨</div>
+                            <div class="final-emoji animate-heart-beat">🫂</div>
+                        </div>
+                    </div>
+
+                    <!-- Prayer message with all the loving names -->
+                    <div class="message-card bg-gradient-romantic shadow-romantic delay-3">
+                        <div class="message-icons">
+                            <div class="heart-icon">💖</div>
+                            <div class="sparkle-icon">✨</div>
+                            <div class="heart-icon">💖</div>
+                        </div>
+                        
+                        <p class="message-text">
+                            🙏 <strong>I'm also praying for you, my</strong>
+                        </p>
+                        
+                        <div class="love-names">
+                            <div class="love-name">💖 <strong>Thangapulla</strong></div>
+                            <div class="love-name">🌸 <strong>Chellakutty</strong></div>
+                            <div class="love-name">👶 <strong>Babymaa</strong></div>
+                            <div class="love-name">🥧 <strong>Cutie Pie</strong></div>
+                            <div class="love-name">🎀 <strong>Pattu</strong></div>
+                            <div class="love-name">🧸 <strong>Bujjuuu</strong></div>
+                        </div>
+                        
+                        <p class="message-text">
+                            <strong>— may you be healed soon.</strong> ✨
+                        </p>
+                    </div>
+
+                    <!-- Final reassurance -->
+                    <div class="final-message bg-gradient-love shadow-heart">
+                        <div class="final-heart-container">
+                            <div class="final-heart-bg">
+                                <div class="final-heart-large">💖</div>
+                            </div>
+                        </div>
+                        
+                        <h2 class="final-title">💖 All will be okay soon, my love 💖</h2>
+                        
+                        <p class="final-text">Juda Prince is with you always</p>
+                        
+                        <div class="final-emojis">
+                            <div class="final-emoji animate-heart-beat">🩷</div>
+                            <div class="final-emoji animate-float">💋</div>
+                            <div class="final-emoji animate-heart-beat">😚</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Falling emojis functionality
+        const emojis = ['🩷', '💋', '😚', '🫂', '👨‍❤️‍💋‍👨', '💖', '✨', '🌸', '💕', '🎀'];
+        const fallingEmojisContainer = document.getElementById('fallingEmojis');
+        
+        function createFallingEmoji() {
+            const emoji = document.createElement('div');
+            emoji.className = 'falling-emoji';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + '%';
+            emoji.style.animationDelay = Math.random() * 2 + 's';
+            emoji.style.animationDuration = (8 + Math.random() * 4) + 's';
+            
+            fallingEmojisContainer.appendChild(emoji);
+            
+            // Remove emoji after animation completes
+            setTimeout(() => {
+                if (emoji.parentNode) {
+                    emoji.parentNode.removeChild(emoji);
+                }
+            }, 12000);
+        }
+        
+        // Create falling emojis at intervals
+        setInterval(createFallingEmoji, 800);
+        
+        // Initial burst of emojis
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFallingEmoji, i * 200);
+        }
+    </script>
+</body>
+</html>
